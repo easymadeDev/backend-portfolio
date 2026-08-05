@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EasyMade - Backend Engineer</title>
+<meta name="description" content="Backend engineer specializing in NestJS and TypeScript. Building fintech wallets, enterprise ERP systems, and API integrations at production scale.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300d9a3%22>&gt;_</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="noise" aria-hidden="true"></div>
+
+<header class="nav" id="top">
+  <div class="nav-inner">
+    <a href="#top" class="brand">EasyMade<span class="brand-dot">.dev</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#approach">Approach</a>
+      <a href="#about">About</a>
+      <a href="resume.html" class="nav-cta">Resume <span class="dl-arrow">&darr;</span></a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile">
+    <a href="#work">Work</a>
+    <a href="#stack">Stack</a>
+    <a href="#approach">Approach</a>
+    <a href="#about">About</a>
+    <a href="resume.html">Resume</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="prompt">$&gt;_</span> Backend engineer, NestJS &amp; TypeScript</p>
+        <h1>I build the systems that move money, data, and messages without falling over.</h1>
+        <p class="hero-sub">Wallets, ledgers, job queues, and robust APIs designed for scale and reliability&hellip; production backends, built and still growing.</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">See the work</a>
+          <a href="https://wa.me/2349077974344?text=Hi%20Isaac%2C%20I%27d%20like%20to%20talk%20about%20a%20backend%20project" target="_blank" rel="noopener" class="btn btn-ghost">Hire me</a>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div class="hero-photo-frame">
+          <span class="hero-badge"><span class="dot-live"></span>Available for work</span>
+          <img src="isaac.jpg" alt="Portrait of Isaac Udoh" width="440" height="520" class="hero-photo">
+          <div class="hero-photo-tag">
+            <span>Isaac Udoh</span>
+            <span class="hero-photo-role">Backend Developer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="work">
+    <div class="section-head">
+      <p class="eyebrow"><span class="prompt">$&gt;_</span> selected_works</p>
+      <h2>Systems Architecture &amp; Implementations</h2>
+    </div>
+
+    <div class="case-list">
+
+      <div class="case-row-2">
+        <article class="case-card">
+          <div class="case-card-head">
+            <div>
+              <h3>SwiftData Global</h3>
+              <p class="case-kicker">Fintech Platform</p>
+            </div>
+            <span class="case-icon" aria-hidden="true">&#9670;</span>
+          </div>
+          <p class="case-desc">A deposit-rewards and trading app built solo: daily/weekly compounding rewards on deposits, a mobile-data wallet credited per deposit, and live market trading, all backed by a wallet ledger.</p>
+          <div class="case-code">
+            <div class="case-code-bar">
+              <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+            </div>
+            <pre class="case-code-body"><code><span class="tk-f">wallet</span>.<span class="tk-f">credit</span>(payload);
+<span class="tk-f">reward</span>.<span class="tk-f">accrueDaily</span>(walletId);
+<span class="tk-c">// BullMQ for asynchronous processing</span></code></pre>
+          </div>
+          <ul class="case-tags">
+            <li>NestJS</li><li>MongoDB</li><li>BullMQ</li><li>Brevo</li>
+          </ul>
+          <a href="docs.html#wallet-balance" class="case-docs-link">View API reference &rarr;</a>
+        </article>
+
+        <article class="case-card">
+          <div class="case-card-head">
+            <div>
+              <h3>Shoreline ERP</h3>
+              <p class="case-kicker">Enterprise Resource Planning</p>
+            </div>
+            <span class="case-icon" aria-hidden="true">&#9634;</span>
+          </div>
+          <p class="case-desc">Owned the HR module backend in a cross-functional team environment. Implemented secure, standards-compliant authentication flows.</p>
+          <div class="case-code">
+            <div class="case-code-bar">
+              <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+            </div>
+            <pre class="case-code-body"><code><span class="tk-f">hr</span>.<span class="tk-f">onboard</span>(employeeIds);
+<span class="tk-f">auth</span>.<span class="tk-f">verifyWebAuthn</span>(req);
+<span class="tk-c">// Relational data integrity enforced</span></code></pre>
+          </div>
+          <ul class="case-tags">
+            <li>PostgreSQL</li><li>WebAuthn</li><li>NestJS</li>
+          </ul>
+          <a href="docs.html#access-onboard" class="case-docs-link">View API reference &rarr;</a>
+        </article>
+      </div>
+
+      <div class="case-row-3">
+        <article class="case-card case-card-sm">
+          <h3>Idagha Alumni</h3>
+          <p class="case-desc">A school alumni platform: member records, onboarding, and a transparent transaction history for association dues and contributions.</p>
+          <div class="case-code">
+            <div class="case-code-bar">
+              <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+            </div>
+            <pre class="case-code-body"><code><span class="tk-f">alumni</span>.<span class="tk-f">onboard</span>(record);
+<span class="tk-f">ledger</span>.<span class="tk-f">recordTx</span>(entry);</code></pre>
+          </div>
+          <ul class="case-tags">
+            <li>NESTJS</li><li>MONGODB</li><li>NODEMAILER</li>
+          </ul>
+          <a href="docs.html#records-model" class="case-docs-link">View API reference &rarr;</a>
+        </article>
+
+        <article class="case-card case-card-sm">
+          <div class="case-card-head">
+            <h3>TopFuze</h3>
+            <span class="status-tag">In progress</span>
+          </div>
+          <p class="case-desc">A bill payment app: users buy airtime, data, and other bills through a wallet-backed API.</p>
+          <ul class="case-tags case-tags-only">
+            <li>MICROSERVICES</li><li>REDIS</li>
+          </ul>
+        </article>
+
+        <article class="case-card case-card-sm">
+          <h3>FASU</h3>
+          <p class="case-desc">A food storefront with cart and checkout. No account required: orders are tracked by phone number or order number.</p>
+          <ul class="case-tags case-tags-only">
+            <li>CLOUDINARY</li><li>MONGODB</li><li>RESEND</li>
+          </ul>
+          <a href="docs.html#store-order" class="case-docs-link">View API reference &rarr;</a>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack" class="stack">
+    <div class="stack-inner">
+      <div class="stack-intro">
+        <p class="eyebrow"><span class="prompt">$&gt;_</span> tech_stack</p>
+        <h2>Tools of the Trade</h2>
+        <p class="stack-lede">Focused on the TypeScript ecosystem, utilizing robust frameworks and databases to ensure reliability and type safety across the board.</p>
+      </div>
+
+      <div class="stack-grid">
+        <div class="stack-group">
+          <h3>Languages &amp; Frameworks</h3>
+          <ul class="stack-list">
+            <li>TypeScript</li>
+            <li>NestJS</li>
+            <li>Node.js</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3>Data &amp; Storage</h3>
+          <ul class="stack-list">
+            <li>PostgreSQL</li>
+            <li>MongoDB</li>
+            <li>Redis</li>
+            <li>Mongoose / Prisma</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3>Async &amp; Auth</h3>
+          <ul class="stack-list">
+            <li>BullMQ</li>
+            <li>JWT / OAuth2</li>
+            <li>WebAuthn</li>
+            <li>WebSocket gateways</li>
+          </ul>
+        </div>
+        <div class="stack-group">
+          <h3>Integrations &amp; Delivery</h3>
+          <ul class="stack-list">
+            <li>Payment webhooks &middot; VTpass</li>
+            <li>Cloudinary &middot; WhatsApp (Baileys)</li>
+            <li>Brevo &middot; Resend &middot; Nodemailer</li>
+            <li>Swagger/OpenAPI &middot; Jest</li>
+            <li>Docker &middot; GitHub Actions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach" class="approach">
+    <div class="section-head">
+      <p class="eyebrow"><span class="prompt">$&gt;_</span> design_philosophy</p>
+      <h2>Architectural Principles</h2>
+    </div>
+    <div class="approach-grid">
+      <div class="approach-item">
+        <span class="approach-num">01</span>
+        <h3>Money stays honest</h3>
+        <p>ACID compliance and strict ledger logic aren't optional. Financial data must be auditable and resilient to race conditions.</p>
+      </div>
+      <div class="approach-item">
+        <span class="approach-num">02</span>
+        <h3>Modules own domain</h3>
+        <p>Embracing Domain-Driven Design in NestJS to keep boundaries clear, reducing coupling and making services easier to reason about.</p>
+      </div>
+      <div class="approach-item">
+        <span class="approach-num">03</span>
+        <h3>Auth is layered</h3>
+        <p>Security at the gateway, controller, and service levels. Implementing modern standards like WebAuthn for robust identity verification.</p>
+      </div>
+      <div class="approach-item">
+        <span class="approach-num">04</span>
+        <h3>APIs get a seam</h3>
+        <p>Designing interfaces that abstract internal complexity, allowing frontend teams to consume endpoints predictably and safely.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="about-inner">
+      <div class="about-panel" aria-hidden="true">
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+            <span class="terminal-title">isaac_udoh.ts</span>
+            <button type="button" class="run-btn" id="runBtn" aria-label="Run code snippet">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true"><path d="M1 0.5 L9 5 L1 9.5 Z"/></svg>
+              Run
+            </button>
+          </div>
+          <pre class="terminal-body"><code id="terminalCode"><span class="tk-k">interface</span> <span class="tk-f">Engineer</span> {
+  name: <span class="tk-k">string</span>;
+  role: <span class="tk-k">string</span>;
+  focus: <span class="tk-k">string</span>[];
+}
+
+<span class="tk-k">const</span> isaac: <span class="tk-f">Engineer</span> = {
+  name: <span class="tk-s">'Isaac Udoh'</span>,
+  role: <span class="tk-s">'Backend Developer'</span>,
+  focus: [
+    <span class="tk-s">'Scalable Architecture'</span>,
+    <span class="tk-s">'System Reliability'</span>,
+    <span class="tk-s">'Data Integrity'</span>
+  ],
+  execute: <span class="tk-k">async</span> () =&gt; {
+    <span class="tk-k">return</span> <span class="tk-k">await</span> buildRobustSystems();
+  }
+};<span class="term-cursor" id="termCursor">&#9608;</span></code></pre>
+          <div class="run-output" id="runOutput" aria-live="polite"></div>
+        </div>
+      </div>
+      <div class="about-body">
+        <p class="eyebrow"><span class="prompt">$&gt;_</span> who.am.i</p>
+        <h2>The Developer Behind the Logic</h2>
+        <p class="about-text">I am a backend specialist dedicated to the NestJS and TypeScript ecosystem. My background is rooted in constructing systems where failure is not an option: handling financial transactions, orchestrating complex job queues, and ensuring data flows securely.</p>
+        <p class="about-text">I value clean code, thorough documentation, and architecture that anticipates future scale. When I'm not writing services, I'm usually diving into the latest system design patterns or optimizing query performance.</p>
+        <div class="about-links">
+          <a href="https://www.linkedin.com/in/isaactechdev" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/easymadeDev" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://x.com/isaactechdev" target="_blank" rel="noopener">X / Twitter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="contact-inner">
+      <span class="contact-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+      </span>
+      <h2>Have a backend that needs building or fixing?</h2>
+      <p class="contact-sub">Tell me what you're building or what's breaking. I'm currently open for new opportunities.</p>
+
+      <div class="contact-grid">
+        <a href="https://wa.me/2349077974344?text=Hi%20Isaac%2C%20I%27d%20like%20to%20talk%20about%20a%20backend%20project" target="_blank" rel="noopener" class="contact-card contact-card-primary">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.14c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11-.42-.14-.96-.32-1.65-.63-2.9-1.25-4.8-4.16-4.94-4.35-.14-.19-1.18-1.57-1.18-3 0-1.42.74-2.12 1-2.41.26-.29.58-.36.77-.36.19 0 .39 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.3.37-.44.5-.14.14-.3.29-.13.58.17.29.75 1.24 1.62 2.01 1.11.99 2.04 1.3 2.34 1.44.3.15.47.13.65-.06.18-.19.75-.87.95-1.16.2-.29.4-.24.66-.14.27.1 1.71.81 2 .96.29.14.48.22.55.34.07.13.07.72-.17 1.4Z"/></svg>
+          <span>
+            <strong>WhatsApp</strong>
+            <span>Fastest way to reach me, usually a reply within a day</span>
+          </span>
+        </a>
+
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=easymadeu@gmail.com&su=Backend%20project%20inquiry" target="_blank" rel="noopener" class="contact-card">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+          <span>
+            <strong>Email</strong>
+            <span>easymadeu@gmail.com</span>
+          </span>
+        </a>
+
+        <a href="https://github.com/easymadeDev" target="_blank" rel="noopener" class="contact-card">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.41-5.26 5.69.41.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5Z"/></svg>
+          <span>
+            <strong>GitHub</strong>
+            <span>github.com/easymadeDev</span>
+          </span>
+        </a>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-field">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="cf-subject">Subject</label>
+          <input type="text" id="cf-subject" name="subject" placeholder="What's this about?" required>
+        </div>
+        <div class="form-field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="5" placeholder="Tell me what you're building or what's breaking&hellip;" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">Send message</button>
+        <p class="form-note">Opens your email client (or Gmail) with everything filled in, ready to send.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span>EasyMade.dev</span>
+      <span class="footer-copy">&copy; 2024 Isaac Udoh. Built with NestJS and high-concurrency message queues.</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/easymadeDev" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/isaactechdev" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="resume.html">Resume</a>
+      <a href="docs.html">Documentation</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

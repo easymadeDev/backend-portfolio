@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isaac Udoh — Backend Developer — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #14171d;
+    --ink-dim: #4a5158;
+    --ink-faint: #7a828c;
+    --line: #dfe3e8;
+    --accent: #00a37b;
+    --accent-wash: #e6f9f3;
+    --sans: 'Outfit', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --max: 780px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f3f5f7;
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    padding: 40px 20px;
+  }
+  .page {
+    max-width: var(--max);
+    margin: 0 auto;
+    background: #fff;
+    padding: 56px 60px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  /* HEADER */
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .head h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .head .title {
+    margin-top: 4px;
+    font-family: var(--mono);
+    font-size: 0.92rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .contact-block {
+    text-align: right;
+    font-size: 0.82rem;
+    color: var(--ink-dim);
+    line-height: 1.75;
+  }
+  .contact-block a { color: var(--ink-dim); text-decoration: none; }
+  .contact-block span.label { color: var(--ink-faint); margin-right: 6px; }
+
+  /* SECTIONS */
+  section { margin-top: 30px; }
+  h2 {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 14px;
+  }
+  .summary p {
+    font-size: 0.95rem;
+    color: var(--ink-dim);
+    line-height: 1.7;
+    max-width: 66ch;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 8px 16px;
+    font-size: 0.86rem;
+  }
+  .skills-grid dt {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .skills-grid dd {
+    color: var(--ink-dim);
+  }
+
+  /* PROJECTS */
+  .project { margin-bottom: 20px; }
+  .project:last-child { margin-bottom: 0; }
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .project-head h3 {
+    font-size: 1.02rem;
+    font-weight: 700;
+  }
+  .project-kicker {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+  .project-meta {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+  .project p.desc {
+    margin-top: 6px;
+    font-size: 0.88rem;
+    color: var(--ink-dim);
+    line-height: 1.6;
+    max-width: 66ch;
+  }
+  .tag-row {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-dim);
+    background: var(--accent-wash);
+    border-radius: 4px;
+    padding: 3px 9px;
+  }
+
+  /* APPROACH */
+  .approach-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 24px;
+  }
+  .approach-list div {
+    font-size: 0.86rem;
+    color: var(--ink-dim);
+    line-height: 1.55;
+  }
+  .approach-list strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  footer {
+    margin-top: 36px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { box-shadow: none; padding: 32px 40px; max-width: none; }
+    @page { margin: 14mm; }
+  }
+
+  @media (max-width: 640px) {
+    .page { padding: 32px 24px; }
+    .head { flex-direction: column; }
+    .contact-block { text-align: left; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .approach-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="head">
+    <div>
+      <h1>Isaac Udoh</h1>
+      <p class="title">Backend Developer — NestJS &amp; TypeScript</p>
+    </div>
+    <div class="contact-block">
+      <div><span class="label">Phone</span>+234 907 797 4344</div>
+      <div><span class="label">Location</span>Uyo, Nigeria</div>
+      <div><span class="label">Email</span><a href="mailto:easymadeu@gmail.com">easymadeu@gmail.com</a></div>
+      <div><span class="label">GitHub</span><a href="https://github.com/easymadeDev">github.com/easymadeDev</a></div>
+      <div><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/isaactechdev">linkedin.com/in/isaactechdev</a></div>
+      <div><span class="label">X</span><a href="https://x.com/isaactechdev">@isaactechdev</a></div>
+    </div>
+  </div>
+
+  <section class="summary">
+    <h2>Summary</h2>
+    <p>Backend developer specializing in NestJS and TypeScript, with five production systems shipped solo across fintech, enterprise ERP, community finance, and e-commerce. Comfortable owning a system end to end — schema design, queue architecture, auth, and third-party integrations — with a focus on correctness under real traffic rather than demo-only code.</p>
+  </section>
+
+  <section>
+    <h2>Selected Projects</h2>
+
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <p class="project-kicker">Fintech · Trading platform</p>
+          <h3>SwiftData Global</h3>
+        </div>
+        <span class="project-meta">104 commits · Active development</span>
+      </div>
+      <p class="desc">Multi-currency wallet and trading engine handling deposits, live trade execution, referral payouts, and daily reward accrual. Background jobs run on BullMQ over Redis so payment webhooks and reward calculations never block the request cycle.</p>
+      <div class="tag-row">
+        <span class="tag">NestJS</span><span class="tag">MongoDB</span><span class="tag">Redis + BullMQ</span><span class="tag">Payment webhooks</span><span class="tag">Referral engine</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <p class="project-kicker">Enterprise · ERP · Collaborative build</p>
+          <h3>Shoreline ERP</h3>
+        </div>
+        <span class="project-meta">48 commits · 27 modules · HR module owner</span>
+      </div>
+      <p class="desc">Full operations backbone for a hospitality and logistics business: flight and hotel approvals, kitchen and meal-request scheduling, inventory and asset tracking, department budgets, and an internal chat and blog built on WebSocket gateways. Built with a team &mdash; owned the HR module end to end: staff onboarding, policy distribution to employees, and HR-side reporting.</p>
+      <div class="tag-row">
+        <span class="tag">NestJS</span><span class="tag">PostgreSQL</span><span class="tag">WebSocket gateways</span><span class="tag">Passkey / WebAuthn</span><span class="tag">Role-based access</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <p class="project-kicker">Community finance · WhatsApp integration</p>
+          <h3>Idagha Cash</h3>
+        </div>
+        <span class="project-meta">100 commits · 14 modules</span>
+      </div>
+      <p class="desc">Contribution and reunion-fund tracking for a community association, with a WhatsApp bot as the primary interface. Members log pledges and expenses through chat, backed by a scheduled cron layer for reminders and a wallet ledger underneath.</p>
+      <div class="tag-row">
+        <span class="tag">NestJS</span><span class="tag">MongoDB</span><span class="tag">Baileys (WhatsApp)</span><span class="tag">Scheduled jobs</span><span class="tag">Ledger design</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <p class="project-kicker">Bills &amp; airtime</p>
+          <h3>TopFuze</h3>
+        </div>
+      </div>
+      <p class="desc">VTU platform for airtime, data, cable, and electricity payments, integrated directly against the VTpass API with wallet-backed transactions and a support chat channel.</p>
+      <div class="tag-row">
+        <span class="tag">NestJS</span><span class="tag">MongoDB</span><span class="tag">VTpass API</span><span class="tag">Argon2</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div>
+          <p class="project-kicker">E-commerce</p>
+          <h3>FASU</h3>
+        </div>
+      </div>
+      <p class="desc">Food distribution storefront API for a Nigerian agro business: product catalog, order lifecycle, Cloudinary image uploads, and event-driven activity logging.</p>
+      <div class="tag-row">
+        <span class="tag">NestJS</span><span class="tag">MongoDB</span><span class="tag">Cloudinary</span><span class="tag">Event emitter</span>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <h2>Technical Skills</h2>
+    <dl class="skills-grid">
+      <dt>Language &amp; framework</dt>
+      <dd>TypeScript, Node.js, NestJS</dd>
+      <dt>Data</dt>
+      <dd>PostgreSQL, MongoDB, Mongoose, Prisma, Redis</dd>
+      <dt>Async &amp; realtime</dt>
+      <dd>BullMQ, WebSocket gateways, Event emitters, Cron scheduling</dd>
+      <dt>Auth &amp; security</dt>
+      <dd>JWT, Passport, Passkeys / WebAuthn, Argon2 / bcrypt, Rate limiting</dd>
+      <dt>Integrations</dt>
+      <dd>Payment webhooks, VTpass, Cloudinary, WhatsApp (Baileys), Brevo, Resend, Nodemailer</dd>
+      <dt>Delivery</dt>
+      <dd>Swagger / OpenAPI, Jest, Docker, GitHub Actions</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Engineering Approach</h2>
+    <div class="approach-list">
+      <div>
+        <strong>Money and state stay honest</strong>
+        Wallet and ledger writes are idempotent and queued, not fired directly from the request handler.
+      </div>
+      <div>
+        <strong>Modules own their domain</strong>
+        Each NestJS module wraps one business concept, its DTOs, its guards, and its own tests.
+      </div>
+      <div>
+        <strong>Auth is layered, not bolted on</strong>
+        JWT for API sessions, passkeys where phishing-resistant login matters, role guards on every protected route.
+      </div>
+      <div>
+        <strong>Third-party APIs get a seam</strong>
+        Providers sit behind a service interface, so a provider swap is a rewrite of one file, not the whole codebase.
+      </div>
+    </div>
+  </section>
+
+  <footer>References and code walkthroughs available on request.</footer>
+
+</div>
+
+</body>
+</html>

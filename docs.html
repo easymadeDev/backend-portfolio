@@ -19,6 +19,7 @@
     gap: 0;
     min-height: calc(100vh - 68px);
   }
+  .docs-shell > * { min-width: 0; }
 
   .docs-side {
     border-right: 1px solid var(--border);
@@ -29,6 +30,15 @@
     height: calc(100vh - 68px);
     overflow-y: auto;
   }
+  .docs-side-summary {
+    display: none;
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--text);
+    list-style: none;
+  }
+  .docs-side-summary::-webkit-details-marker { display: none; }
   .docs-side-group { margin-bottom: 28px; }
   .docs-side-group h4 {
     font-family: var(--mono);
@@ -66,7 +76,7 @@
   .m-patch { background: rgba(255,193,7,0.14); color: #ffc107; }
   .m-delete { background: rgba(255,95,87,0.14); color: #ff5f57; }
 
-  .docs-main { padding: 48px 40px 100px; max-width: 820px; }
+  .docs-main { padding: 48px 40px 100px; max-width: 820px; min-width: 0; }
   .docs-intro { margin-bottom: 56px; }
   .docs-intro .eyebrow { margin-bottom: 14px; }
   .docs-intro h1 {
@@ -254,11 +264,73 @@
   .flow-step h4 { font-size: 0.94rem; font-weight: 600; }
   .flow-step p { margin-top: 4px; color: var(--text-dim); font-size: 0.86rem; line-height: 1.55; }
 
+  .docs-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 40;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--accent);
+    color: #06120e;
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 11px 18px;
+    border-radius: 999px;
+    box-shadow: 0 12px 30px -8px rgba(0,0,0,0.55);
+    transition: transform 0.15s ease;
+  }
+  .docs-fab:hover { transform: translateY(-2px); }
+  .docs-fab:active { transform: scale(0.97); }
+
   @media (max-width: 900px) {
     .docs-shell { grid-template-columns: 1fr; }
-    .docs-side { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--border); }
-    .docs-main { padding: 36px 20px 80px; }
+    .docs-side {
+      position: static;
+      height: auto;
+      max-height: none;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 16px;
+    }
+    .docs-side[open] { padding-bottom: 18px; }
+    .docs-side-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 4px;
+    }
+    .docs-side-summary::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid var(--text-dim);
+      border-bottom: 2px solid var(--text-dim);
+      transform: rotate(45deg);
+      transition: transform 0.2s ease;
+    }
+    .docs-side[open] .docs-side-summary::after { transform: rotate(-135deg); }
+    .docs-side-scroll {
+      margin-top: 16px;
+      max-height: 50vh;
+      overflow-y: auto;
+    }
+    .docs-side-group { margin-bottom: 20px; }
+    .docs-main { padding: 32px 20px 100px; }
     .endpoint-grid { grid-template-columns: 1fr; }
+    .docs-fab span { display: none; }
+    .docs-fab { padding: 13px; }
+  }
+
+  @media (max-width: 640px) {
+    .docs-intro .note { display: block; max-width: none; }
+    .docs-intro p, .endpoint > p.desc, .endpoint-section p { max-width: none; }
+    .endpoint-path { font-size: 0.84rem; word-break: break-all; }
+    .code-block pre { font-size: 0.76rem; white-space: pre-wrap; word-break: break-word; }
+    .param-table { font-size: 0.8rem; display: block; overflow-x: auto; white-space: nowrap; }
+    .param-table th, .param-table td { padding: 8px; }
   }
 </style>
 </head>
@@ -270,55 +342,61 @@
   <div class="nav-inner">
     <a href="index.html" class="brand">EasyMade<span class="brand-dot">.dev</span></a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="index.html#work">Work</a>
-      <a href="index.html#stack">Stack</a>
-      <a href="index.html#about">About</a>
+      <a href="index.html">&larr; Back to portfolio</a>
       <a href="resume.html" class="nav-cta">Resume <span class="dl-arrow">&darr;</span></a>
     </nav>
   </div>
 </header>
 
+<a href="index.html" class="docs-fab" aria-label="Back to portfolio">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+  <span>Portfolio</span>
+</a>
+
 <div class="docs-shell">
 
-  <aside class="docs-side">
-    <div class="docs-side-group">
-      <h4>Overview</h4>
-      <a href="#introduction">Introduction</a>
-      <a href="#auth">Authentication</a>
-      <a href="#errors">Error handling</a>
+  <details class="docs-side" id="docsSide" open>
+    <summary class="docs-side-summary">Jump to section</summary>
+    <div class="docs-side-scroll">
+      <div class="docs-side-group">
+        <h4>Overview</h4>
+        <a href="#introduction">Introduction</a>
+        <a href="#auth">Authentication</a>
+        <a href="#errors">Error handling</a>
+      </div>
+      <div class="docs-side-group">
+        <h4>Wallets &amp; payments</h4>
+        <a href="#wallet-balance"><span class="docs-method-tag m-get">GET</span>Get balance</a>
+        <a href="#wallet-credit"><span class="docs-method-tag m-post">POST</span>Credit wallet</a>
+        <a href="#wallet-webhook"><span class="docs-method-tag m-post">POST</span>Payment webhook</a>
+      </div>
+      <div class="docs-side-group">
+        <h4>Trading</h4>
+        <a href="#trade-execute"><span class="docs-method-tag m-post">POST</span>Execute trade</a>
+        <a href="#trade-history"><span class="docs-method-tag m-get">GET</span>Trade history</a>
+      </div>
+      <div class="docs-side-group">
+        <h4>Referrals</h4>
+        <a href="#referral-payout"><span class="docs-method-tag m-post">POST</span>Trigger payout</a>
+      </div>
+      <div class="docs-side-group">
+        <h4>Access &amp; roles</h4>
+        <a href="#access-onboard"><span class="docs-method-tag m-post">POST</span>Onboard member</a>
+        <a href="#access-policy"><span class="docs-method-tag m-get">GET</span>Policy distribution</a>
+      </div>
+      <div class="docs-side-group">
+        <h4>Records &amp; ledgers</h4>
+        <a href="#records-model">Member record model</a>
+        <a href="#records-tx"><span class="docs-method-tag m-post">POST</span>Record transaction</a>
+        <a href="#records-history"><span class="docs-method-tag m-get">GET</span>Transaction history</a>
+      </div>
+      <div class="docs-side-group">
+        <h4>Storefront &amp; orders</h4>
+        <a href="#store-order"><span class="docs-method-tag m-post">POST</span>Place order</a>
+        <a href="#store-lookup"><span class="docs-method-tag m-get">GET</span>Look up order</a>
+      </div>
     </div>
-    <div class="docs-side-group">
-      <h4>Wallets &amp; payments</h4>
-      <a href="#wallet-balance"><span class="docs-method-tag m-get">GET</span>Get balance</a>
-      <a href="#wallet-credit"><span class="docs-method-tag m-post">POST</span>Credit wallet</a>
-      <a href="#wallet-webhook"><span class="docs-method-tag m-post">POST</span>Payment webhook</a>
-    </div>
-    <div class="docs-side-group">
-      <h4>Trading</h4>
-      <a href="#trade-execute"><span class="docs-method-tag m-post">POST</span>Execute trade</a>
-      <a href="#trade-history"><span class="docs-method-tag m-get">GET</span>Trade history</a>
-    </div>
-    <div class="docs-side-group">
-      <h4>Referrals</h4>
-      <a href="#referral-payout"><span class="docs-method-tag m-post">POST</span>Trigger payout</a>
-    </div>
-    <div class="docs-side-group">
-      <h4>Access &amp; roles</h4>
-      <a href="#access-onboard"><span class="docs-method-tag m-post">POST</span>Onboard member</a>
-      <a href="#access-policy"><span class="docs-method-tag m-get">GET</span>Policy distribution</a>
-    </div>
-    <div class="docs-side-group">
-      <h4>Records &amp; ledgers</h4>
-      <a href="#records-model">Member record model</a>
-      <a href="#records-tx"><span class="docs-method-tag m-post">POST</span>Record transaction</a>
-      <a href="#records-history"><span class="docs-method-tag m-get">GET</span>Transaction history</a>
-    </div>
-    <div class="docs-side-group">
-      <h4>Storefront &amp; orders</h4>
-      <a href="#store-order"><span class="docs-method-tag m-post">POST</span>Place order</a>
-      <a href="#store-lookup"><span class="docs-method-tag m-get">GET</span>Look up order</a>
-    </div>
-  </aside>
+  </details>
 
   <main class="docs-main">
 
@@ -695,6 +773,23 @@
     </div>
   </div>
 </footer>
+
+<script>
+  (function () {
+    var side = document.getElementById("docsSide");
+    if (!side) return;
+    function syncCollapse() {
+      side.open = window.innerWidth > 900;
+    }
+    syncCollapse();
+    window.addEventListener("resize", syncCollapse);
+    side.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        if (window.innerWidth <= 900) side.open = false;
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>

@@ -112,9 +112,15 @@ ul { list-style: none; }
 .nav-mobile {
   display: none;
   flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   padding: 8px 24px 20px;
   gap: 4px;
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 16px 32px -12px rgba(0,0,0,0.5);
 }
 .nav-mobile a {
   padding: 12px 0;
